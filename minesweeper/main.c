@@ -7,27 +7,31 @@ void displayBoard(int size, char *valueTab);
 
 void main(int argc, char **argv)
 {
+    // get size (4 - 16), quit option
+    // get difficoulty (1 - 4), quit option
+    // prepare mines table
 
-    // int number;
-    // printf("size = ");
-    // scanf("%d", &number);
-    // printf("\number = %d\n", number);
+    // gameplay in a loop:
+    // get value
 
-    // prepare "mine field"
-    char valueTab[64] = {0};
+    char minesTab[64] = {0};
+    char revealTab[64] = {0};
     for (int i = 0; i < 64; i++)
     {
         int randVal10 = (rand() * rand()) % 100;
-        valueTab[i] = (randVal10 < 8) ? 'x' : ' ';
+        minesTab[i] = (randVal10 < 8) ? 'x' : ' ';
     }
-    displayBoard(8, valueTab);
+    displayBoard(8, revealTab);
+
+    int number;
+    scanf("%d", &number);
 }
 
 void displayBoard(int size, char *valueTab)
 {
-    char firstRow[500] = "   ";
-    char tableRow[500] = "  +";
-    char tableVal[500] = "A |";
+    char firstRow[500] = "    ";
+    char tableRow[500] = "   +";
+    char tableVal[500] = " A |";
 
     int off = strlen(tableRow);
     // off += sprintf(tableEdge + off, "---+");
@@ -49,7 +53,7 @@ void displayBoard(int size, char *valueTab)
         }
         printf("%s\n", tableRow);
         printf("%s\n", tableVal);
-        sprintf(tableVal, "%c |", 'B' + j);
+        sprintf(tableVal, " %c |", 'B' + j);
         off = 0;
     }
     printf("%s\n", tableRow);
