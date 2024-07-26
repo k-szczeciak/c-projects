@@ -1,0 +1,3 @@
+
+
+    InitWindow(screenWidth, screenHeight, "Minesweeper");

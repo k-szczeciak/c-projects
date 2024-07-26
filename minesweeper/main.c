@@ -57,4 +57,6 @@ void displayBoard(int size, char *valueTab)
         off = 0;
     }
     printf("%s\n", tableRow);
+
+    // printf("%3d oC", 12);
 }
